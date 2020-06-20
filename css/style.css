@@ -64,6 +64,11 @@ p {
   grid-column-gap: 35px;
 }
 
+#earth,
+#island {
+  display: none;
+}
+
 .card__image {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
@@ -71,6 +76,13 @@ p {
   justify-self: end;
   align-self: center;
 }
+
+/* card img style */
+
+.card__image:hover {
+  transform: rotate(40deg);
+}
+
 
 .card__image--bg {
   grid-row: 1 / 2;
