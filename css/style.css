@@ -58,16 +58,16 @@ p {
   top:0;
   left: 0;
 
-  display: grid;
+  display: none;
   grid-template-columns: 3.5fr 4.5fr;
   grid-template-rows: 1fr;
   grid-column-gap: 35px;
 }
 
-#earth,
-#island {
-  display: none;
+.active {
+  display: grid;
 }
+
 
 .card__image {
   grid-row: 1 / 2;

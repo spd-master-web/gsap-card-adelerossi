@@ -12,7 +12,7 @@
 
   <div class="wrapper">
 
-    <article class="card" id="dolphin">
+    <article class="card active" id="dolphin">
       <img src="img/dolphin.svg" width="180" alt="Dolphin illustration." class="card__image">
       <img src="img/blob-1.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -22,7 +22,7 @@
       </header>
     </article>
 
-    <article class="card" id="island" >
+    <article class="card" id="island">
       <img src="img/island.svg" width="180" alt="Island illustration." class="card__image">
       <img src="img/blob-2.svg" alt="" class="card__image--bg">
       <header class="card__header">
@@ -46,9 +46,9 @@
 
   <nav class="navigation">
     <ul class="navigation__list">
-      <li class="navigation__listitem"><a href="#dolphin" class="navigation__link">Dolphins and plastic</a></li>
-      <li class="navigation__listitem"><a href="#island" class="navigation__link">Palm oil effects</a></li>
-      <li class="navigation__listitem"><a href="#earth" class="navigation__link">Climate crisis</a></li>
+      <li class="navigation__listitem"><a onClick="showCard('dolphin')" href="#dolphin" class="navigation__link">Dolphins and plastic</a></li>
+      <li class="navigation__listitem"><a  onClick="showCard('island')"href="#island" class="navigation__link">Palm oil effects</a></li>
+      <li class="navigation__listitem"><a onClick="showCard('earth')" href="#earth" class="navigation__link">Climate crisis</a></li>
     </ul>
   </nav>
 
@@ -58,13 +58,31 @@
 
 
   <script>
+    // Codice esistente
+    //var AnimationElement = gsap.timeline ();
+    //AnimationElement.to(".card__image", { transform: scale(1.5,1.5), duration:1 } )
 
-    var AnimationElement = gsap.timeline ();
+    // Change card effect on click
+    function showCard(id) {
+      document.getElementById('dolphin').classList.remove('active');
+      document.getElementById('island').classList.remove('active');
+      document.getElementById('earth').classList.remove('active');
+
+      document.getElementById(id).classList.add('active');
+
+    }
+
+
+    // GSAP
+    var ourTimeline = gsap.timeline();
+    ourTimeline.from(".card__link", { opacity: "0", duration: 1 });
+    ourTimeline.from(".card__description", { delay: -1, opacity: "0", transform: "translateX(40px)", duration: 3 });
+    ourTimeline.to(".card__image", { rotation: 360, delay: -4, duration: 6 });
+
+    ourTimeline.fromTo(".navigation", { background: "rgb(255,0,0)" }, { background: "rgb(0,0,255)", duration: 2, delay: -5})
+
     
 
-
-    var AnimationElement = gsap.timeline ();
-    AnimationElement.to(."card__image", { transform: scale(1.5, 1.5), duration:1 } )
 
   </script>
 
